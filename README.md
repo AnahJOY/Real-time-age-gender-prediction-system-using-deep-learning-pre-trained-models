@@ -7,7 +7,7 @@ command 2 - python app.py
 
 
 
-This repository contains the code for [Real-time Age and gender prediction systems using deep learning pretrained model using python )]() 
+This repository contains the code for [Real-time Age and gender prediction systems using deep learning,pretrained models)]() 
 
 
 ./AgeGender <input_file>(Leave blank for webcam)
