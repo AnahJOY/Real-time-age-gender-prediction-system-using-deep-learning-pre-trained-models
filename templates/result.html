@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 30px; }
+        img { height: 300px; border: 3px solid #444; border-radius: 10px; margin-bottom: 20px; }
+        .btn { padding: 10px 20px; background: #1a75ff; color: white; text-decoration: none; border-radius: 5px; margin: 5px; }
+        .btn:hover { background: #005ce6; }
+    </style>
+</head>
+<body>
+    <h2>Prediction Result</h2>
+    <div>
+        <img src="data:image/jpeg;base64,{{ result.image }}" alt="Predicted Face">
+        <p><strong>Source:</strong> {{ result.source }}</p>
+        <p><strong>Gender:</strong> {{ result.gender }}</p>
+        <p><strong>Age:</strong> {{ result.age }}</p>
+    </div>
+    <div>
+        <a href="/webcam" class="btn">🔄 Retake</a>
+        <a href="/summary" class="btn">📊 View Summary</a>
+        <a href="/" class="btn" style="background:#999;">🏠 Home</a>
+    </div>
+</body>
+</html>

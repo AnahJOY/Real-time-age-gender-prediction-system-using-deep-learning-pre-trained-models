@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detection Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 30px;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #444;
+            color: #fff;
+        }
+        img {
+            height: 100px;
+            border-radius: 10px;
+        }
+        .center {
+            text-align: center;
+            margin: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background: #1a75ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .btn:hover {
+            background: #005ce6;
+        }
+    </style>
+</head>
+<body>
+    <h2>Prediction Summary</h2>
+
+    {% if summary %}
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Source</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Face Snapshot</th>
+        </tr>
+        {% for item in summary %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.source }}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.age }}</td>
+            <td><img src="data:image/jpeg;base64,{{ item.image }}" /></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="center">
+        <a href="/download_csv" class="btn">Download CSV</a>
+        <a href="/download_pdf" class="btn">Download PDF</a>
+        <a href="/clear_summary" class="btn" style="background-color: #cc0000;">Clear Summary</a>
+        <a href="/" class="btn" style="background-color: #999;">Back to Home</a>
+    </div>
+    {% else %}
+    <div class="center">
+        <p>No predictions available yet.</p>
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+    {% endif %}
+</body>
+</html>
